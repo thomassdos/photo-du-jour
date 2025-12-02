@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Photo du Jour</title>
+</head>
+<body style="text-align:center; font-family:Arial; margin-top:40px;">
+  <h2>📸 La Photo du Jour 📸</h2>
+
+  <script>
+    // Liste de photos (une par jour du mois, boucle automatique)
+    const photos = [
+      "https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/1/1e/Large_Siamese_cat_tosses_a_mouse.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/b/bb/Kittyply_edit1.jpg"
+    ];
+
+    const d = new Date();
+    const index = d.getDate() % photos.length;
+    document.write(`<img src="${photos[index]}" style="max-width:90%; border-radius:12px;">`);
+  </script>
+
+  <p style="margin-top:20px; opacity:0.6; font-size:12px;">
+    Reviens demain voir la prochaine 😼
+  </p>
+</body>
+</html>
