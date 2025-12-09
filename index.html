@@ -8,19 +8,56 @@
   <h2>📸 La Photo du Jour 📸</h2>
 
   <script>
-    // Liste de photos (une par jour du mois, boucle automatique)
+    // Liste de photos (autant que tu veux)
     const photos = [
       "https://imgur.com/a/BMM28Mi.jpg",
       "https://imgur.com/ch3Ianl.jpg",
       "https://imgur.com/hZZuBvY.jpg",
       "https://imgur.com/2yVuZ41.jpg",
       "https://imgur.com/YT64756.jpg",
-      "https://imgur.com/DVULNv8.jpg"
+      "https://imgur.com/DVULNv8.jpg",
+      "https://imgur.com/Hva67Vy.jpg",
+      "https://imgur.com/SXHKOo7.jpg",
+      "https://imgur.com/ig9sgfN.jpg",
+      "https://imgur.com/XW9Kbo2.jpg",
+      "https://imgur.com/frjPu9J.jpg",
+      "https://imgur.com/ihdMiAM.jpg",
+      "https://imgur.com/vRTwhEB.jpg",
+      "https://imgur.com/LpDLjvT.jpg",
+      "https://imgur.com/2SoV6s0.jpg",
+      "https://imgur.com/Af00yjK.jpg",
+      "https://imgur.com/SOJp3Yu.jpg",
+      "https://imgur.com/GFMQPLs.jpg",
+      "https://imgur.com/aq1mpqs.jpg",
+      "https://imgur.com/jfN85MZ.jpg",
+      "https://imgur.com/TkqxJUT.jpg",
+      "https://imgur.com/QS7qyUU.jpg",
+      "https://imgur.com/hInNtpa.jpg",
+      "https://imgur.com/W8RU5md.jpg",
+      "https://imgur.com/IX0fXN7.jpg",
+      "https://imgur.com/vbIGufD.jpg",
+      "https://imgur.com/UOXGjOQ.jpg",
+      "https://imgur.com/2ChEdV9.jpg",
+      "https://imgur.com/D2LaxoJ.jpg",
+      "https://imgur.com/wOgqIpf.jpg",
+      "https://imgur.com/mkFbtmU.jpg",
+      "https://imgur.com/yhATcXK.jpg",
+      "https://imgur.com/vkOpdez.jpg",
+      "https://imgur.com/JvBl6y0.jpg",
+      "https://imgur.com/AVCKJeZ.jpg",
+      "https://imgur.com/f6mAg3x.jpg"
     ];
 
-    const d = new Date();
-    const index = d.getDate() % photos.length;
-    document.write(`<img src="${photos[index]}" style="max-width:90%; border-radius:12px;">`);
+    // Photo = jour actuel (1 → 0, 2 → 1, etc.)
+    const today = new Date();
+    const index = (today.getTime() / (1000 * 60 * 60 * 24)) % photos.length;
+
+    // Arrondi pour obtenir un index entier
+    const photoIndex = Math.floor(index);
+
+    document.write(`
+      <img src="${photos[photoIndex]}" style="max-width:90%; border-radius:12px;">
+    `);
   </script>
 
   <p style="margin-top:20px; opacity:0.6; font-size:12px;">
