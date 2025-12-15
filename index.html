@@ -8,10 +8,6 @@
   <h2>📸 La Photo du Jour 📸</h2>
 
   <script>
-    // Photo spéciale pour aujourd'hui
-    const specialPhoto = "https://imgur.com/pql9wSk.jpg";
-
-    // Liste de photos existantes + tu peux en rajouter d'autres
     const photos = [
       "https://imgur.com/a/BMM28Mi.jpg",
       "https://imgur.com/ch3Ianl.jpg",
@@ -70,27 +66,18 @@
       "https://imgur.com/BFLJRi2.jpg"
     ];
 
-    // Date du jour
+    // Date du jour à minuit (heure ignorée)
     const today = new Date();
+    today.setHours(0, 0, 0, 0);
 
-    // Si on est le 12 décembre 2025 -> afficher LA photo spéciale
-    const isSpecialDay =
-      today.getFullYear() === 2025 &&
-      today.getMonth() === 11 && // mois 11 = décembre
-      today.getDate() === 12;
+    // Nombre de jours écoulés depuis le 01/01/1970
+    const daysSinceEpoch = Math.floor(today.getTime() / (1000 * 60 * 60 * 24));
 
-    let photoToShow;
-
-    if (isSpecialDay) {
-      photoToShow = specialPhoto;
-    } else {
-      // Choix random pour les autres jours
-      const index = Math.floor(Math.random() * photos.length);
-      photoToShow = photos[index];
-    }
+    // Index stable pour toute la journée
+    const photoIndex = daysSinceEpoch % photos.length;
 
     document.write(`
-      <img src="${photoToShow}" style="max-width:90%; border-radius:12px;">
+      <img src="${photos[photoIndex]}" style="max-width:90%; border-radius:12px;">
     `);
   </script>
 
